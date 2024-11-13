@@ -1,0 +1,16 @@
+{
+  "name": "oxido-recruitment-task",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "index.js"
+  },
+  "author": "Dawid Gucwa",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.72.0"
+  }
+}
+
