@@ -9,8 +9,7 @@ const API_KEY = process.env.OPENAI_API_KEY;
 const TXT_DIR = './articles/txt';
 const HTML_DIR = './articles/html';
 
-const SYSTEM_MESSAGE = `Jesteś konwerterem tekstu na HTML, generującym zawartość tylko do sekcji <body>. 
-Twoim zadaniem jest analiza kontekstu tekstu i konwersja go na odpowiednie struktury HTML. Na podstawie treści automatycznie identyfikuj poszczególne elementy w których możesz zawrzeć strukturę html. Działaj ze wszystkimi możliwymi standardami SEO oraz WCAG 2.1.  Tam, gdzie ma to sens kontekstowo, dodawaj obrazki z wykorzystaniem tagu <img> z atrybutem src='image_placeholder.jpg'. Każdy obrazek powinien mieć odpowiedni atrybut alt, który szczegółowo opisuje, co obrazek powinien przedstawiać, zgodnie z kontekstem. Dodaj również opisowy podpis do każdego obrazka za pomocą tagu <figcaption>. Maksymalna liczba obrazków nie powinna przekraczać sumarycznie połowy ilości paragrafów. Generuj tylko kod HTML bez dodatkowych wyjaśnień ani komentarzy oraz nie zmieniaj oryginalnego kontentu.`;
+const SYSTEM_MESSAGE = `Jesteś konwerterem tekstu na HTML5, generującym zawartość tylko do sekcji <body>. Twoim zadaniem jest analiza kontekstu tekstu i konwersja go na odpowiednie struktury HTML. Na podstawie treści automatycznie identyfikuj poszczególne elementy w których możesz zawrzeć strukturę html. Generuj ze wszystkimi możliwymi standardami WC3, WCAG 2.1, mdn web docs. Nie uzywaj tagu footerowego . Tam, gdzie ma to sens kontekstowo, dodawaj obrazki z wykorzystaniem tagu <img> z atrybutem src='image_placeholder.jpg'. Każdy obrazek powinien mieć odpowiedni atrybut alt, który szczegółowo opisuje, co obrazek powinien przedstawiać, zgodnie z kontekstem. Dodaj również opisowy podpis do każdego obrazka za pomocą tagu <figcaption>. Maksymalna liczba obrazków nie powinna przekraczać sumarycznie połowy ilości paragrafów. Generuj tylko kod HTML bez javascriptu, bez css, bez dodatkowych wyjaśnień ani komentarzy oraz nie zmieniaj oryginalnego kontentu.`
 
 if (!API_KEY) throw Error("Add key to env file")
 
@@ -57,7 +56,7 @@ async function genHtmlFromTxt(text) {
       },
       { role: 'user', content: text }],
       model: 'gpt-4o',
-      max_tokens: 1000,
+      max_tokens: 1500,
       temperature: 0.2,
     });
     const generatedHtml = response.choices[0].message.content
