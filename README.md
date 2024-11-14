@@ -23,3 +23,17 @@ Po przetworzeniu, aplikacja zakończy swoje działania a w folderze _articles/ht
 - Aplikacja posiada prostą obsługę błędów, które będą się wyświetlać w konsoli i przerywać działanie skryptu
 - Limit plików txtowych do 5 podczas jednej iteracji aplikacji ( _dla bezpieczeństwa użytkownika interaktującego z api_ )
 
+# Preview - zadanie dodatkowe
+
+Został przygotowany folder preview zawierający:
+
+- _podglad.html_
+- _szablon.html_
+
+Podstawą tego jest skrypt **preview.js**. Zajmuje się on asynchroniczną podmiana kontentu w pliku _szablon.html_ przy pomocy komendy wprowadzanej w terminalu. <br>
+komenda:&nbsp;`npm run preview <nazwa-pliku>`. <br> Skrypt wykona operacje wyczyszczenia starego wyglądu _podglad.html_ oraz podmiany go na podstawie _szablon.html_ wraz z nowym wybranym przez siebie artykułem.
+
+### Dodatkowe informacje od autora
+
+Zadanie, mające dość prostą podstawę można poszerzać i skalować, jednym z pierwszych pomysłów jest stworzenie menu w którym użytkownik będzie miał wylistowane wszystkie pliki i gdzie bedzie mogl podejrzeć je przy pomocy jednego kliknięcia. Dodatkowo można też ograniczyc wrzucanie np artykułow bezposrednio do projektu a stworzyc prosty panel przez obsługę np dropzone, które zapewni szybkie przetwarzanie artykułów i uprości cały proces.
+
